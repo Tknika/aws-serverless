@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+  </head>
+  <body>
+    <button id="signIn">Sign In</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/oidc-client/1.11.5/oidc-client.min.js"></script>
+    <script>
+      const config = {
+        authority:
+          'https://cognito-idp.us-east-1.amazonaws.com/us-east-1_TJkYwsBM2',
+        client_id: '218496j1v37m94abho9lcj8tro',
+        redirect_uri:
+          'https://prueba-cognito-mgilav.s3.us-east-1.amazonaws.com/inicio.html',
+        response_type: 'code',
+        scope: 'openid email phone',
+      }
+
+      const userManager = new Oidc.UserManager(config)
+
+      document.getElementById('signIn').addEventListener('click', () => {
+        userManager.signinRedirect()
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Inicio</title>
+  </head>
+  <body>
+    <div>
+      Hello:
+      <pre id="email"></pre>
+      Access token:
+      <pre id="access-token"></pre>
+      ID token:
+      <pre id="id-token"></pre>
+      Refresh token:
+      <pre id="refresh-token"></pre>
+    </div>
+
+    <button id="signOut">Log out</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/oidc-client/1.11.5/oidc-client.min.js"></script>
+    <script>
+      const config = {
+        authority:
+          'https://cognito-idp.us-east-1.amazonaws.com/us-east-1_TJkYwsBM2',
+        client_id: '218496j1v37m94abho9lcj8tro',
+        redirect_uri:
+          'https://prueba-cognito-mgilav.s3.us-east-1.amazonaws.com/inicio.html',
+        response_type: 'code',
+        scope: 'openid email phone',
+      }
+
+      const userManager = new Oidc.UserManager(config)
+
+      userManager
+        .signinRedirectCallback()
+        .then((user) => {
+          document.getElementById('email').textContent =
+            user.profile.email || 'No email'
+          document.getElementById('access-token').textContent =
+            user.access_token
+          document.getElementById('id-token').textContent = user.id_token
+          document.getElementById('refresh-token').textContent =
+            user.refresh_token || 'No refresh token'
+        })
+        .catch((err) => {
+          console.error(err)
+        })
+
+      document.getElementById('signOut').addEventListener('click', () => {
+        const logoutUri =
+          'https://prueba-cognito-mgilav.s3.us-east-1.amazonaws.com/index.html'
+        const clientId = config.client_id
+        const cognitoDomain =
+          'https://us-east-1tjkywsbm2.auth.us-east-1.amazoncognito.com'
+        const logoutUrl = `${cognitoDomain}/logout?client_id=${clientId}&logout_uri=${encodeURIComponent(
+          logoutUri
+        )}`
+        window.location.href = logoutUrl
+      })
+    </script>
+  </body>
+</html>
