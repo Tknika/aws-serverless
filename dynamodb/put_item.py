@@ -6,8 +6,9 @@ tabla = dynamodb.Table('pruebas')
 def lambda_handler(event, context):
     tabla.put_item(
         Item={
-            'usuarioID': 'user123',
-            'itemID': 'item456',
+            'usuarioID': '123',
+            'itemID': '456',
+            'categoria': 'libros',
             'descripcion': 'Descripción de ejemplo'
         }
     )
