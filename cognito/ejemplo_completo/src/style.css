@@ -1,0 +1,117 @@
+body {
+  font-family: sans-serif;
+  background-color: #f8f9fa;
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+  color: #333;
+}
+
+h1,
+h2 {
+  color: #2c3e50;
+}
+
+form {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  background: #fff;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+form label {
+  margin-top: 0.5rem;
+}
+
+form input {
+  padding: 0.4rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form button {
+  margin-top: 1rem;
+  padding: 0.6rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+th,
+td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f1f1f1;
+}
+
+.botones {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.botones #token {
+  max-width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color: #f0f0f0;
+  padding: 0.3rem 0.5rem;
+  border-radius: 4px;
+  font-family: monospace;
+  margin-top: 0.5rem;
+}
+
+#signIn,
+#signOut {
+  padding: 0.5rem 1rem;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#signIn {
+  background-color: #28a745;
+}
+
+#signIn:hover {
+  background-color: #218838;
+}
+
+#signOut {
+  background-color: #dc3545;
+}
+
+#signOut:hover {
+  background-color: #c82333;
+}
+
+div > pre {
+  background: #f1f1f1;
+  padding: 0.5rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  font-family: monospace;
+  margin: 0.25rem 0 1rem;
+}

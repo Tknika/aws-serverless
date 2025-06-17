@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <h1>Inventario</h1>
+    <form action="">
+      <label for="idUsuario">ID Usuario</label>
+      <input type="text" id="idUsuario" name="idUsuario" />
+      <label for="idItem">ID ítem</label>
+      <input type="text" id="idItem" name="idItem" />
+      <label for="descripcion">Descripción</label>
+      <input type="text" id="descripcion" name="descripcion" />
+      <label for="categoria">Categoría</label>
+      <input type="text" id="categoria" name="categoria" />
+      <button type="submit">Añadir</button>
+    </form>
+    <div class="items">
+      <h2>Items</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Usuario</th>
+            <th>Item</th>
+            <th>Descripción</th>
+            <th>Categoría</th>
+          </tr>
+        </thead>
+        <tbody id="listaItems"></tbody>
+      </table>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
