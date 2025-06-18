@@ -1,4 +1,4 @@
-import { userManager } from './main.js'
+import { userManager, signOutRedirect } from '/src/main.js'
 
 const API_URL =
   'https://jhk64dl93d.execute-api.us-east-1.amazonaws.com/default/items'
@@ -57,7 +57,6 @@ document.querySelector('form').addEventListener('submit', async (event) => {
   const categoria = document.getElementById('categoria').value
 
   const tokenID = await getAccessToken()
-  console.log('Token ID:', tokenID)
   const response = await fetch(API_URL, {
     method: 'POST',
     headers: {
@@ -72,4 +71,13 @@ document.querySelector('form').addEventListener('submit', async (event) => {
     }),
   })
   cargarItems()
+})
+
+document.getElementById('signIn').addEventListener('click', async () => {
+  await userManager.signinRedirect()
+})
+
+document.getElementById('signOut').addEventListener('click', async () => {
+  sessionStorage.clear()
+  await signOutRedirect()
 })

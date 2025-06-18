@@ -40,17 +40,5 @@
       </table>
     </div>
     <script type="module" src="/src/index.js"></script>
-    <script type="module">
-      import { userManager, signOutRedirect } from '/src/main.js'
-
-      document.getElementById('signIn').addEventListener('click', async () => {
-        await userManager.signinRedirect()
-      })
-
-      document.getElementById('signOut').addEventListener('click', async () => {
-        sessionStorage.clear()
-        await signOutRedirect()
-      })
-    </script>
   </body>
 </html>
